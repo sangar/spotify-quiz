@@ -1,6 +1,19 @@
 <h1>Main#playlist</h1>
 <p>Find me in app/views/main/playlist.html.erb</p>
 
-<% @playlists.each do |list| %>
-  <p><%= list.inspect %></p>
-<% end %>
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @playlists.each do |list| %>
+      <tr>
+        <td><%= image_tag list.images.first["url"], size: '50x50' %></td>
+        <td><%= list.name %></td>
+        <td><%#= list.inspect %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
