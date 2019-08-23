@@ -31,3 +31,12 @@
 ubuntu-bionic-18.04-cloudimg-console.log
 .idea/
 node_modules
+.DS_Store
+/public/packs
+/public/packs-test
+/node_modules
+.idea
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
