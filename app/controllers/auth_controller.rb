@@ -1,3 +1,5 @@
+#!/bin/ruby
+
 class AuthController < ApplicationController
   def callback
     Rails.logger.debug ">>>>>>>>>>>>> callback: #{params}"
@@ -18,6 +20,8 @@ class AuthController < ApplicationController
       }
     )
 
+    # {"access_token"=>"BQBWjwfmHLeEHSnE_5GD6sX9O4j5c9TZo--cTpV3IpOk8fFn_lSvnOvrQVuUJp8SoVVC74gP7yqTUB6XT7uIEt37bgJgr_W0_IMcOUMj1eD4fyOi9WULX4B7tWrWp1mt0dSRuLDo-Q8yfW64hA6FgdIpdsvg6upK4aH7ERkBKBHfse4h4XG-FuxtzL3HWUm8yzsoNnBmZIhq9yQG41Vh2WHRyQfqfoCjB3Luy2PNjA", "token_type"=>"Bearer", "expires_in"=>3600, "refresh_token"=>"AQC0EeHL3MwozUiOyA3mYYAJmEjjXdL9-8uE6Dc5feemwQtGkitCMS3i8MkeklnNwE-3CqepX1j83ZzxUNhijeXgYeim5gu1-3e5VZAvORBTABCbPI9Rxnwoh3VNVdeYZFM0WA", "scope"=>"playlist-read-private user-library-read user-library-modify playlist-modify-private playlist-modify-public user-read-email"}
+
     Rails.logger.debug ">>>>>>>>>> res.token: #{res.inspect}"
 
     session[:access_token] = res.parsed_response['access_token']
@@ -33,6 +37,11 @@ class AuthController < ApplicationController
     # {"display_name":"garsan","email":"gard.sandholt@gmail.com","external_urls":{"spotify":"https://open.spotify.com/user/garsan"},"followers":{"href":null,"total":36},"href":"https://api.spotify.com/v1/users/garsan","id":"garsan","images":[],"type":"user","uri":"spotify:user:garsan"}
 
     session[:spotify_user] = res2.parsed_response
+    session[:spotify_user]['credentials'] = {
+      "token" => res.parsed_response['access_token'],
+      "refresh_token" => res.parsed_response['refresh_token'],
+      "exspires_at" => DateTime.now.to_i + res.parsed_response['expires_in']
+    }
 
     redirect_to playlist_path
   end
