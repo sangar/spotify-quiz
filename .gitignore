@@ -33,6 +33,7 @@ ubuntu-bionic-18.04-cloudimg-console.log
 /public/packs
 /public/packs-test
 /node_modules
+.idea
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
