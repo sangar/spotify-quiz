@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_action :authenticate_user!, only: [:spotify]
+  #skip_before_action :authenticate_user!, only: [:spotify]
 
   def spotify
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
