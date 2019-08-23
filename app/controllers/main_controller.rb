@@ -1,7 +1,11 @@
 class MainController < ApplicationController
-  #before_action :authenticate_user!, except: [:login]
+  before_action :authenticate, except: [:login]
 
   def login
+  end
+
+  def logout
+    logout!
   end
 
   def playlist

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   #
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  get '', to: 'main#login'
-  match '/users/auth/spotify/callback', to: 'users/omniauth_callbacks#spotify', via: [:get, :post]
+  get '', to: 'main#login', as: :login
+  delete 'logout', to: 'main#logout'
 
   get 'callback', to: 'auth#callback'
 
