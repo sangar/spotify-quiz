@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :logged_in?, :authenticate
+  helper_method :logged_in?
 
   def logged_in?
     session[:spotify_user]

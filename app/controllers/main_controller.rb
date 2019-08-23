@@ -2,6 +2,7 @@ class MainController < ApplicationController
   before_action :authenticate, except: [:login]
 
   def login
+    redirect_to playlist_path if logged_in?
   end
 
   def logout
