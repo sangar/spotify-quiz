@@ -1,5 +1,3 @@
-#!/bin/ruby
-
 class AuthController < ApplicationController
   def callback
     Rails.logger.debug ">>>>>>>>>>>>> callback: #{params}"
