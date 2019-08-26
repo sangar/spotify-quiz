@@ -1,19 +1,14 @@
 <h1>Main#playlist</h1>
 <p>Find me in app/views/main/playlist.html.erb</p>
 
-<table>
-  <thead>
-    <th></th>
-    <th></th>
-    <th></th>
-  </thead>
-  <tbody>
+
+<section class="section has-background-black has-centered-text">
+  <div id="playlist-container">
     <% @playlists.each do |list| %>
-      <tr>
-        <td><%= image_tag list.images.first["url"], size: '50x50' %></td>
-        <td><%= list.name %></td>
-        <td><%#= list.inspect %></td>
-      </tr>
+      <div class="playlist-item">
+        <%= image_tag list.images.first["url"], size: '120x120' %>
+        <%= link_to 'Play', start_path(pid: list.id) %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</section>

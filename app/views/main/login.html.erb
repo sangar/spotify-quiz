@@ -2,4 +2,4 @@
 <p>Find me in app/views/main/login.html.erb</p>
 
 
-<%= link_to 'Sign in with Spotify', "https://accounts.spotify.com/authorize?client_id=#{ENV['SPOTIFY_CLIENT_ID']}&scope=user-read-email playlist-modify-public playlist-modify-private playlist-read-private user-library-read user-library-modify&redirect_uri=#{root_url}callback&response_type=code" %>
+<%= link_to 'Sign in with Spotify', "https://accounts.spotify.com/authorize?client_id=#{ENV['SPOTIFY_CLIENT_ID']}&scope=user-modify-playback-state user-read-playback-state user-read-email playlist-modify-public playlist-modify-private playlist-read-private user-library-read user-library-modify&redirect_uri=#{root_url}callback&response_type=code" %>

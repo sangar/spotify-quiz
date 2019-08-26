@@ -1,3 +1,16 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  background-color: white;
+}
+
+#playlist-container {
+  margin-top: 25px;
+  display: flex;
+}
+
+.playlist-item {
+  padding: 10px;
+}

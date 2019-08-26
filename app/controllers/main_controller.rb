@@ -9,6 +9,9 @@ class MainController < ApplicationController
   end
 
   def start
+    @tracks = RSpotify::Playlist.find(spotify_user.id, params[:pid]).tracks
+    @devices = spotify_user.devices
+    #spotify_user.player.play_context(params[:pid])
   end
 
   def quiz

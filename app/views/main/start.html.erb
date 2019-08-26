@@ -1,2 +1,13 @@
 <h1>Main#start</h1>
 <p>Find me in app/views/main/start.html.erb</p>
+
+<% @tracks.each do |track| %>
+  <p><%= track.name %> - <%= link_to 'Play', track.uri %></p>
+<% end %>
+
+<h1>DEVICES</h1>
+<%= @devices %>
+<% @devices.each do |device|%>
+  <p><% device.id %></p>
+  <p><% device.name %></p>
+<% end %>
